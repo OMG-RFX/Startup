@@ -180,23 +180,28 @@ try { const c = JSON.parse(localStorage.getItem("omg_dash") || "null"); if (c &&
 
 // File d'attente : le service accepte 30 requêtes par 10 s, on reste en dessous.
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-let done = 0, total = 0;
+let done = 0, total = 0, rates = 0;
+// Renvoie le nombre, 0 si la clé n'existe pas encore, ou null si le service n'a pas répondu
+// (saturé ou hors ligne) : dans ce cas on garde la dernière valeur connue au lieu d'afficher 0.
 async function get(key) {
-  for (let essai = 0; essai < 3; essai++) {
+  for (let essai = 0; essai < 5; essai++) {
     try {
       const r = await fetch(API + key, { cache: "no-store" });
-      if (r.status === 429) { await sleep(10000); continue; }
-      const j = await r.json();
-      return typeof j.value === "number" ? j.value : 0;
+      const j = await r.json().catch(() => ({}));
+      if (typeof j.value === "number") return j.value;
+      if (r.status === 404 || /not found/i.test(j.error || "")) return 0;
+      if (r.status === 429 || /too many/i.test(j.error || "")) { await sleep(10000); continue; }
+      await sleep(1500);
     } catch (e) { await sleep(1500); }
   }
   return null;
 }
-async function readAll(keys, into) {
+async function readAll(keys, into, prev) {
   total += keys.length; progress();
   for (const k of keys) {
     const v = await get(k);
-    into[k] = v === null ? (into[k] || 0) : v;
+    if (v === null) { rates++; into[k] = (prev && typeof prev[k] === "number") ? prev[k] : 0; }
+    else into[k] = v;
     done++; progress();
     await sleep(380);
   }
@@ -216,23 +221,25 @@ function days(n) {
 
 async function load() {
   $("#refresh").disabled = true; $("#loading").hidden = false;
-  done = 0; total = 0;
+  done = 0; total = 0; rates = 0;
   const fresh = { glowup: {}, coach: {} };
   for (const p of Object.keys(PAGES)) {
-    await readAll(EVENTS.map(e => p + "." + e + ".total"), fresh[p]);
+    await readAll(EVENTS.map(e => p + "." + e + ".total"), fresh[p], data[p]);
     render(Object.assign({}, data, { [p]: Object.assign({}, data[p], fresh[p]) }));
     if (!fresh[p][p + ".visite.total"]) continue;
-    await readAll(SOURCES.map(s => p + ".visite." + s[0]).concat(days(14).map(d => p + ".visite.d" + d)), fresh[p]);
+    await readAll(SOURCES.map(s => p + ".visite." + s[0]).concat(days(14).map(d => p + ".visite.d" + d)), fresh[p], data[p]);
     const actives = SOURCES.filter(s => fresh[p][p + ".visite." + s[0]] > 0).map(s => s[0]);
     const keys = [];
     actives.forEach(s => ["clic-formulaire","inscription","partage"].forEach(e => keys.push(p + "." + e + "." + s)));
-    await readAll(keys, fresh[p]);
+    await readAll(keys, fresh[p], data[p]);
   }
   data = fresh;
   data.maj = new Date().toLocaleString("fr-FR");
   try { localStorage.setItem("omg_dash", JSON.stringify(data)); } catch (e) {}
   render(data);
-  $("#status").innerHTML = "<small>À jour · " + esc(data.maj) + "</small>";
+  $("#status").innerHTML = rates
+    ? "<small>Le service de comptage était saturé : " + rates + " compteur(s) non relu(s), dernière valeur connue affichée. Clique « Actualiser » dans une minute.</small>"
+    : "<small>À jour · " + esc(data.maj) + "</small>";
   $("#bar").style.width = "100%";
   $("#refresh").disabled = false;
 }
