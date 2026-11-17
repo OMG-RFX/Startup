@@ -3,8 +3,9 @@
 (function () {
   "use strict";
   var SITE_URL = "https://omg-rfx.github.io/Startup/repfix";
-  // Adresse de réception des inscriptions (FormSubmit). À remplacer ici seulement par l'alias secret plus tard.
-  var FORM_ENDPOINT = "https://formsubmit.co/ajax/ohmyglowpub@gmail.com";
+  // Adresse de réception des inscriptions (Web3Forms). La clé d'accès est publique par conception : elle ne permet que d'envoyer vers notre boîte mail.
+  var FORM_ENDPOINT = "https://api.web3forms.com/submit";
+  var FORM_KEY = "7e5a2111-1f66-48e5-9163-1991cba90904";
   var CAMPAIGN = "test_coach";
   var PAGE = /[?&]__test=1\b/.test(location.search) ? "test" : "coach";
   var UTM = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
@@ -70,7 +71,7 @@
     if (typeof window.plausible === "function" && PLAUSIBLE[event]) {
       try { window.plausible(PLAUSIBLE[event], { props: { detail: label || "", source: a.utm_source || "(aucune)" } }); } catch (e) {}
     }
-    // Les inscriptions sont envoyées par email via FormSubmit (FORM_ENDPOINT) ; le compteur s'occupe des statistiques.
+    // Les inscriptions sont envoyées par email via Web3Forms (FORM_ENDPOINT) ; le compteur s'occupe des statistiques.
   }
 
   // Visite + défilement à 50 %
@@ -149,7 +150,7 @@
       btn.disabled = true; btnLabel.textContent = "Inscription en cours…"; status.textContent = "";
       var at = getAttr();
       var data = {
-        _subject: "Inscription RepFix", _template: "table", _captcha: "false", _honey: q("web").value,
+        access_key: FORM_KEY, subject: "Inscription RepFix", from_name: "RepFix", botcheck: q("web").value ? true : false,
         email: email, prenom: fn, optin: "oui", age: "oui",
         page: PAGE, emplacement: loc, utm_source: at.utm_source || "", utm_medium: at.utm_medium || "",
         utm_campaign: at.utm_campaign || "", utm_content: at.utm_content || "", referent: at.referrer || "",

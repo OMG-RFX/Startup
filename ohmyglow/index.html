@@ -387,7 +387,7 @@ footer .wrap { display: grid; gap: 16px; }
 /* ===== RÉGLAGES : à remplir avant la mise en ligne ===== */
 const CONFIG = {
   page: "glowup",
-  // Les inscriptions sont envoyées par email via FormSubmit (FORM_ENDPOINT).
+  // Les inscriptions sont envoyées par email via Web3Forms (FORM_ENDPOINT).
   contact: "[ton-email@exemple.fr]"
 };
 /* ======================================================= */
@@ -413,8 +413,9 @@ const sourceLabel = SOURCE.utm_source || "direct";
 
 // Compteur de visites et d'actions par source (sans cookies, aucune donnée personnelle).
 const COUNTER = "https://abacus.jasoncameron.dev/hit/ohmyglow-x7k2q9/";
-// Adresse de réception des inscriptions (FormSubmit). À remplacer ici seulement par l'alias secret plus tard.
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/ohmyglowpub@gmail.com";
+// Adresse de réception des inscriptions (Web3Forms). La clé d'accès est publique par conception : elle ne permet que d'envoyer vers notre boîte mail.
+const FORM_ENDPOINT = "https://api.web3forms.com/submit";
+const FORM_KEY = "7e5a2111-1f66-48e5-9163-1991cba90904";
 const SOURCES = ["tiktok", "instagram", "youtube_shorts", "snapchat", "tiktok_us", "instagram_us", "youtube_shorts_us", "snapchat_us", "meta_ads", "bouche_a_oreille", "partage", "direct"];
 function guessSource() {
   if (SOURCE.utm_source) return SOURCES.includes(SOURCE.utm_source) ? SOURCE.utm_source : "autre";
@@ -472,7 +473,7 @@ document.querySelectorAll(".js-waitlist").forEach(form => {
     const btn = form.querySelector("button");
     btn.disabled = true; btn.textContent = "Inscription…";
     const data = {
-      _subject: "Inscription Oh My Glow", _template: "table", _captcha: "false", _honey: "",
+      access_key: FORM_KEY, subject: "Inscription Oh My Glow", from_name: "Oh My Glow", botcheck: false,
       email, prenom, optin: "oui", age: "oui", page: CONFIG.page,
       utm_source: SOURCE.utm_source, utm_medium: SOURCE.utm_medium,
       utm_campaign: SOURCE.utm_campaign, utm_content: SOURCE.utm_content,
