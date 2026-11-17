@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tableau de bord</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#082C2F; --nuit-2:#0F3A3E; --nuit-3:#174A4F;
+  --rose:#F05C9D; --rose-clair:#F78DBB; --pervenche:#9CAFED;
+  --lait:#FFF4F8; --doux:#C9D3F2; --gris:#8FA6A8; --vert:#6FD3A6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--nuit);color:var(--lait);font:15px/1.5 "DM Sans",system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px 64px}
+h1,h2,h3{font-family:Unbounded,system-ui,sans-serif;font-weight:700;margin:0}
+h1{font-size:22px}
+h2{font-size:16px;margin-bottom:12px}
+.muted{color:var(--gris)}
+small{font-size:13px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px}
+button{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:9px 16px;background:var(--rose);color:var(--nuit);font-weight:700}
+button.ghost{background:transparent;color:var(--lait);border:1px solid var(--nuit-3)}
+button.ghost[aria-pressed=true]{background:var(--lait);color:var(--nuit);border-color:var(--lait)}
+button:disabled{opacity:.5;cursor:wait}
+.card{background:var(--nuit-2);border:1px solid var(--nuit-3);border-radius:18px;padding:18px;margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:12px}
+.kpi b{display:block;font-family:Unbounded,sans-serif;font-size:24px;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--doux)}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:var(--nuit-3);color:var(--doux);margin-left:6px;vertical-align:middle}
+.tag.rose{background:var(--rose);color:var(--nuit)}
+.progress{height:6px;background:var(--nuit-3);border-radius:9px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--rose);width:0;transition:width .2s}
+#status{min-height:22px}
+.funnel .step{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;margin:8px 0}
+.funnel .bar{height:22px;background:var(--nuit-3);border-radius:8px;overflow:hidden}
+.funnel .bar i{display:block;height:100%;background:var(--pervenche);border-radius:8px}
+.funnel .step:last-child .bar i{background:var(--rose)}
+.funnel .n{text-align:right;font-variant-numeric:tabular-nums}
+.tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{padding:9px 8px;border-bottom:1px solid var(--nuit-3);text-align:right;white-space:nowrap}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl th{font-size:12px;color:var(--doux);font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.tbl tr.best td{color:var(--rose-clair);font-weight:700}
+.scroll{overflow-x:auto}
+.chart svg{width:100%;height:auto;display:block}
+.links li{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--nuit-3)}
+.links code{font-size:12px;color:var(--doux);word-break:break-all}
+.links button{padding:6px 12px;font-size:13px;flex-shrink:0}
+ul{list-style:none;padding:0;margin:0}
+.verdict{font-size:16px;margin-top:8px}
+a{color:var(--rose-clair)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+@media (max-width:560px){.funnel .step{grid-template-columns:110px 1fr 54px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Tableau de bord du test</h1>
+      <div class="muted"><small>Glow-up contre Coach muscu · données en direct</small></div>
+    </div>
+    <button id="refresh">Actualiser</button>
+  </header>
+
+  <style>
+  .all h3{font-size:13px;margin:16px 0 6px;color:var(--doux)}
+  .all ul.l li{display:flex;flex-wrap:wrap;gap:4px 12px;padding:5px 0;border-bottom:1px solid var(--nuit-3)}
+  .all ul.l li span{min-width:150px;color:var(--gris)}
+  .all a{word-break:break-all}
+  .all ul.cols{columns:2 260px;column-gap:24px}
+  .all ul.cols li{padding:3px 0;break-inside:avoid}
+  </style>
+  <div class="card all" id="tous-les-liens">
+    <h2>Tous les liens</h2>
+    <h3>Pages d'attente</h3>
+    <ul class="l">
+      <li><span>Oh My Glow</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/</a></li>
+      <li><span>RepFix</span><a href="https://omg-rfx.github.io/Startup/repfix/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/</a></li>
+    </ul>
+    <h3>Lien à mettre en bio, par compte</h3>
+    <div class="scroll"><table class="tbl"><tr><th>Appli</th><th style="text-align:left">Compte</th><th style="text-align:left">Lien en bio</th></tr><tr><td>RepFix</td><td style="text-align:left">TikTok @sport2fou45</td><td style="text-align:left"><a href="https://omg-rfx.github.io/Startup/repfix/tt/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/tt/</a></td></tr><tr><td>RepFix</td><td style="text-align:left">Instagram @conseil2sportif</td><td style="text-align:left"><a href="https://omg-rfx.github.io/Startup/repfix/ig/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/ig/</a></td></tr><tr><td>RepFix</td><td style="text-align:left">YouTube</td><td style="text-align:left"><a href="https://omg-rfx.github.io/Startup/repfix/yt/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/yt/</a></td></tr><tr><td>Oh My Glow</td><td style="text-align:left">TikTok @girl70463</td><td style="text-align:left"><a href="https://omg-rfx.github.io/Startup/ohmyglow/tt/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/tt/</a></td></tr><tr><td>Oh My Glow</td><td style="text-align:left">Instagram @conseil2glowup</td><td style="text-align:left"><a href="https://omg-rfx.github.io/Startup/ohmyglow/ig/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/ig/</a></td></tr><tr><td>Oh My Glow</td><td style="text-align:left">YouTube Oh2glowup</td><td style="text-align:left"><a href="https://omg-rfx.github.io/Startup/ohmyglow/yt/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/yt/</a></td></tr></table></div>
+    <h3>Raccourcis Oh My Glow (10)</h3>
+    <ul class="l"><li><span>TikTok</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/tt/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/tt/</a></li><li><span>Instagram</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/ig/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/ig/</a></li><li><span>YouTube Shorts</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/yt/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/yt/</a></li><li><span>Snapchat</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/sc/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/sc/</a></li><li><span>Pub Meta</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/pub/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/pub/</a></li><li><span>Bouche-à-oreille</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/ami/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/ami/</a></li><li><span>TikTok US</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/tt-us/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/tt-us/</a></li><li><span>Instagram US</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/ig-us/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/ig-us/</a></li><li><span>YouTube Shorts US</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/yt-us/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/yt-us/</a></li><li><span>Snapchat US</span><a href="https://omg-rfx.github.io/Startup/ohmyglow/sc-us/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/ohmyglow/sc-us/</a></li></ul>
+    <h3>Raccourcis RepFix (10)</h3>
+    <ul class="l"><li><span>TikTok</span><a href="https://omg-rfx.github.io/Startup/repfix/tt/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/tt/</a></li><li><span>Instagram</span><a href="https://omg-rfx.github.io/Startup/repfix/ig/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/ig/</a></li><li><span>YouTube Shorts</span><a href="https://omg-rfx.github.io/Startup/repfix/yt/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/yt/</a></li><li><span>Snapchat</span><a href="https://omg-rfx.github.io/Startup/repfix/sc/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/sc/</a></li><li><span>Pub Meta</span><a href="https://omg-rfx.github.io/Startup/repfix/pub/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/pub/</a></li><li><span>Bouche-à-oreille</span><a href="https://omg-rfx.github.io/Startup/repfix/ami/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/ami/</a></li><li><span>TikTok US</span><a href="https://omg-rfx.github.io/Startup/repfix/tt-us/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/tt-us/</a></li><li><span>Instagram US</span><a href="https://omg-rfx.github.io/Startup/repfix/ig-us/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/ig-us/</a></li><li><span>YouTube Shorts US</span><a href="https://omg-rfx.github.io/Startup/repfix/yt-us/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/yt-us/</a></li><li><span>Snapchat US</span><a href="https://omg-rfx.github.io/Startup/repfix/sc-us/" target="_blank" rel="noopener">https://omg-rfx.github.io/Startup/repfix/sc-us/</a></li></ul>
+    <h3>Vidéos RepFix (10)</h3>
+    <ul class="cols"><li><a href="https://omg-rfx.github.io/Startup/media/repfix-01-echauffement-v2.mp4" target="_blank" rel="noopener">repfix-01-echauffement-v2.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/repfix-02-jambes-v2.mp4" target="_blank" rel="noopener">repfix-02-jambes-v2.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/repfix-03-sommeil-v2.mp4" target="_blank" rel="noopener">repfix-03-sommeil-v2.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/repfix-04-proteines-v2.mp4" target="_blank" rel="noopener">repfix-04-proteines-v2.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/repfix-05-cardio-seche-v2.mp4" target="_blank" rel="noopener">repfix-05-cardio-seche-v2.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/repfix-06-ego-lifting-v2.mp4" target="_blank" rel="noopener">repfix-06-ego-lifting-v2.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/repfix-07-trop-exos-v2.mp4" target="_blank" rel="noopener">repfix-07-trop-exos-v2.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/repfix-08-repos-v2.mp4" target="_blank" rel="noopener">repfix-08-repos-v2.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/repfix-09-abdos-v2.mp4" target="_blank" rel="noopener">repfix-09-abdos-v2.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/repfix-10-creatine-v2.mp4" target="_blank" rel="noopener">repfix-10-creatine-v2.mp4</a></li></ul>
+    <h3>Vidéos Oh My Glow (17)</h3>
+    <ul class="cols"><li><a href="https://omg-rfx.github.io/Startup/media/glow-01-trousse.mp4" target="_blank" rel="noopener">glow-01-trousse.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-02-industrie.mp4" target="_blank" rel="noopener">glow-02-industrie.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-03-habitudes.mp4" target="_blank" rel="noopener">glow-03-habitudes.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-04-reel.mp4" target="_blank" rel="noopener">glow-04-reel.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-05-veille.mp4" target="_blank" rel="noopener">glow-05-veille.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-06-personne.mp4" target="_blank" rel="noopener">glow-06-personne.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-07-points-forts.mp4" target="_blank" rel="noopener">glow-07-points-forts.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-08-jai-tout-essaye.mp4" target="_blank" rel="noopener">glow-08-jai-tout-essaye.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-09-je-ne-devrais-pas.mp4" target="_blank" rel="noopener">glow-09-je-ne-devrais-pas.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-10-si-tu-stagnes.mp4" target="_blank" rel="noopener">glow-10-si-tu-stagnes.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-11-ton-cerveau.mp4" target="_blank" rel="noopener">glow-11-ton-cerveau.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-12-oublie-tout.mp4" target="_blank" rel="noopener">glow-12-oublie-tout.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-13-cinq-minutes.mp4" target="_blank" rel="noopener">glow-13-cinq-minutes.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-14-tout-le-monde.mp4" target="_blank" rel="noopener">glow-14-tout-le-monde.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-15-les-marques.mp4" target="_blank" rel="noopener">glow-15-les-marques.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-16-la-veille-au-soir.mp4" target="_blank" rel="noopener">glow-16-la-veille-au-soir.mp4</a></li><li><a href="https://omg-rfx.github.io/Startup/media/glow-17-laisse-moi-deviner.mp4" target="_blank" rel="noopener">glow-17-laisse-moi-deviner.mp4</a></li></ul>
+  </div>
+
+  <div class="card" id="loading">
+    <div id="status" class="muted"><small>Chargement…</small></div>
+    <div class="progress"><i id="bar"></i></div>
+  </div>
+
+  <section class="grid2" id="compare"></section>
+
+  <div class="card">
+    <h2>France / États-Unis</h2>
+    <div class="grid2" id="geo"></div>
+    <p class="muted"><small>France = TikTok, Instagram, YouTube Shorts et Snapchat. États-Unis = les mêmes canaux via les liens « -us ».</small></p>
+  </div>
+
+  <div class="card">
+    <h2>Qui gagne ?</h2>
+    <div id="decision"></div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <h2 style="margin:0">Détail par page</h2>
+      <div class="tabs" role="group" aria-label="Page">
+        <button class="ghost" data-page="glowup" aria-pressed="true">Glow-up</button>
+        <button class="ghost" data-page="coach" aria-pressed="false">Coach muscu</button>
+      </div>
+    </div>
+    <h3 style="font-size:13px;margin:14px 0 4px" class="muted">Entonnoir</h3>
+    <div class="funnel" id="funnel"></div>
+    <h3 style="font-size:13px;margin:22px 0 4px" class="muted">Par source</h3>
+    <div class="scroll"><table class="tbl" id="sources"></table></div>
+    <p class="muted"><small>Taux de conversion = inscriptions ÷ visites. Une source n'est comparée qu'à partir de 30 visites.</small></p>
+    <h3 style="font-size:13px;margin:22px 0 8px" class="muted">Visites des 14 derniers jours</h3>
+    <div class="chart" id="chart"></div>
+  </div>
+
+  <div class="card">
+    <h2>Les emails des inscrits</h2>
+    <p style="margin:0">Inscriptions : en cours de branchement. Elles arriveront par email (une par inscription, avec sa source).</p>
+  </div>
+
+  <div class="card">
+    <h2>Liens à poster, un par canal</h2>
+    <div class="tabs" role="group" aria-label="Liens" style="margin-bottom:8px">
+      <button class="ghost" data-links="glowup" aria-pressed="true">Glow-up</button>
+      <button class="ghost" data-links="coach" aria-pressed="false">Coach muscu</button>
+    </div>
+    <ul class="links" id="links"></ul>
+  </div>
+</div>
+
+<script>
+const NS = "ohmyglow-x7k2q9";
+const API = "https://abacus.jasoncameron.dev/get/" + NS + "/";
+const PAGES = {
+  glowup: { nom: "Glow-up (Oh My Glow)", url: "https://omg-rfx.github.io/Startup/ohmyglow/" },
+  coach:  { nom: "Coach IA muscu (REPS)", url: "https://omg-rfx.github.io/Startup/repfix/" }
+};
+const SOURCES = [
+  ["tiktok","TikTok"],["instagram","Instagram"],["youtube_shorts","YouTube Shorts"],["snapchat","Snapchat"],
+  ["tiktok_us","TikTok US"],["instagram_us","Instagram US"],["youtube_shorts_us","YouTube US"],["snapchat_us","Snapchat US"],
+  ["meta_ads","Pub Meta"],["bouche_a_oreille","Bouche-à-oreille"],["partage","Partage d'une amie"],
+  ["direct","Direct"],["autre","Autre"]
+];
+// Liens courts (règles dans le fichier _redirects de chaque site)
+const SHORT = { tiktok: "tt", instagram: "ig", youtube_shorts: "yt", snapchat: "sc", tiktok_us: "tt-us", instagram_us: "ig-us", youtube_shorts_us: "yt-us", snapchat_us: "sc-us", meta_ads: "pub", bouche_a_oreille: "ami" };
+const EVENTS = ["visite","clic-formulaire","scroll-50","inscription","partage"];
+const ZONES = [
+  ["France", ["tiktok","instagram","youtube_shorts","snapchat"]],
+  ["États-Unis", ["tiktok_us","instagram_us","youtube_shorts_us","snapchat_us"]]
+];
+const MIN_VISITES = 300, ECART = 0.30, MIN_SOURCE = 30;
+
+const $ = s => document.querySelector(s);
+const fmt = n => (n || 0).toLocaleString("fr-FR");
+const pct = (a, b) => b ? (a / b * 100).toFixed(1).replace(".", ",") + " %" : "–";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+
+let data = { glowup: {}, coach: {} };
+let pageVue = "glowup", liensVue = "glowup";
+
+try { const c = JSON.parse(localStorage.getItem("omg_dash") || "null"); if (c && c.glowup) data = c; } catch (e) {}
+
+// File d'attente : le service accepte 30 requêtes par 10 s, on reste en dessous.
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+let done = 0, total = 0;
+async function get(key) {
+  for (let essai = 0; essai < 3; essai++) {
+    try {
+      const r = await fetch(API + key, { cache: "no-store" });
+      if (r.status === 429) { await sleep(10000); continue; }
+      const j = await r.json();
+      return typeof j.value === "number" ? j.value : 0;
+    } catch (e) { await sleep(1500); }
+  }
+  return null;
+}
+async function readAll(keys, into) {
+  total += keys.length; progress();
+  for (const k of keys) {
+    const v = await get(k);
+    into[k] = v === null ? (into[k] || 0) : v;
+    done++; progress();
+    await sleep(380);
+  }
+}
+function progress() {
+  $("#bar").style.width = (total ? done / total * 100 : 0) + "%";
+  $("#status").innerHTML = "<small>Lecture des compteurs : " + done + " / " + total + "</small>";
+}
+function days(n) {
+  const out = [];
+  for (let i = n - 1; i >= 0; i--) {
+    const d = new Date(); d.setDate(d.getDate() - i);
+    out.push(d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"));
+  }
+  return out;
+}
+
+async function load() {
+  $("#refresh").disabled = true; $("#loading").hidden = false;
+  done = 0; total = 0;
+  const fresh = { glowup: {}, coach: {} };
+  for (const p of Object.keys(PAGES)) {
+    await readAll(EVENTS.map(e => p + "." + e + ".total"), fresh[p]);
+    render(Object.assign({}, data, { [p]: Object.assign({}, data[p], fresh[p]) }));
+    if (!fresh[p][p + ".visite.total"]) continue;
+    await readAll(SOURCES.map(s => p + ".visite." + s[0]).concat(days(14).map(d => p + ".visite.d" + d)), fresh[p]);
+    const actives = SOURCES.filter(s => fresh[p][p + ".visite." + s[0]] > 0).map(s => s[0]);
+    const keys = [];
+    actives.forEach(s => ["clic-formulaire","inscription","partage"].forEach(e => keys.push(p + "." + e + "." + s)));
+    await readAll(keys, fresh[p]);
+  }
+  data = fresh;
+  data.maj = new Date().toLocaleString("fr-FR");
+  try { localStorage.setItem("omg_dash", JSON.stringify(data)); } catch (e) {}
+  render(data);
+  $("#status").innerHTML = "<small>À jour · " + esc(data.maj) + "</small>";
+  $("#bar").style.width = "100%";
+  $("#refresh").disabled = false;
+}
+
+const v = (d, p, k) => (d[p] && d[p][p + "." + k]) || 0;
+
+function render(d) {
+  // Comparaison
+  $("#compare").innerHTML = Object.keys(PAGES).map(p => {
+    const vis = v(d, p, "visite.total"), ins = v(d, p, "inscription.total");
+    const off = !PAGES[p].url ? '<span class="tag">pas encore en ligne</span>' : (!vis ? '<span class="tag">en attente de visites</span>' : "");
+    return '<div class="card"><h2>' + esc(PAGES[p].nom) + off + '</h2><div class="kpis">' +
+      kpi(fmt(vis), "visites") + kpi(fmt(v(d, p, "clic-formulaire.total")), "clics formulaire") +
+      kpi(fmt(ins), "inscriptions") + kpi(pct(ins, vis), "conversion") + '</div></div>';
+  }).join("");
+
+  // France / États-Unis
+  const somme = (p, e, ids) => ids.reduce((t, id) => t + v(d, p, e + "." + id), 0);
+  $("#geo").innerHTML = Object.keys(PAGES).map(p =>
+    '<div><h3 style="font-size:13px;margin:4px 0 4px" class="muted">' + esc(PAGES[p].nom) + '</h3><div class="scroll"><table class="tbl">' +
+    "<thead><tr><th>Zone</th><th>Visites</th><th>Clics form.</th><th>Inscriptions</th><th>Conversion</th></tr></thead><tbody>" +
+    ZONES.map(z => {
+      const vis = somme(p, "visite", z[1]), ins = somme(p, "inscription", z[1]);
+      return "<tr><td>" + esc(z[0]) + "</td><td>" + fmt(vis) + "</td><td>" + fmt(somme(p, "clic-formulaire", z[1])) + "</td><td>" + fmt(ins) + "</td><td>" + pct(ins, vis) + "</td></tr>";
+    }).join("") + "</tbody></table></div></div>"
+  ).join("");
+
+  // Décision
+  const g = { vis: v(d, "glowup", "visite.total"), ins: v(d, "glowup", "inscription.total") };
+  const c = { vis: v(d, "coach", "visite.total"), ins: v(d, "coach", "inscription.total") };
+  const bar = (n) => '<div class="progress" style="margin:4px 0 10px"><i style="width:' + Math.min(100, n / MIN_VISITES * 100) + '%"></i></div>';
+  let verdict;
+  if (g.vis < MIN_VISITES || c.vis < MIN_VISITES) {
+    verdict = "Pas encore assez de visites pour conclure. Il faut au moins " + MIN_VISITES + " visites sur chaque page.";
+  } else {
+    const tg = g.ins / g.vis, tc = c.ins / c.vis;
+    const hi = Math.max(tg, tc), lo = Math.min(tg, tc);
+    if (lo === 0 && hi === 0) verdict = "Aucune inscription d'un côté comme de l'autre : revoyez les vidéos avant de conclure.";
+    else if (lo === 0 || hi / lo - 1 >= ECART) verdict = "<b>" + (tg > tc ? PAGES.glowup.nom : PAGES.coach.nom) + "</b> gagne : sa conversion dépasse l'autre de plus de 30 %.";
+    else verdict = "Écart de moins de 30 % : c'est trop serré. Continuez le test une semaine de plus.";
+  }
+  $("#decision").innerHTML =
+    '<small class="muted">Glow-up : ' + fmt(g.vis) + " / " + MIN_VISITES + ' visites</small>' + bar(g.vis) +
+    '<small class="muted">Coach muscu : ' + fmt(c.vis) + " / " + MIN_VISITES + ' visites</small>' + bar(c.vis) +
+    '<div class="verdict">' + verdict + '</div>' +
+    '<p class="muted"><small>Règle : même durée, même budget et même nombre de posts sur les deux pages. On compare les inscriptions, pas les clics.</small></p>';
+
+  renderPage(d);
+}
+const kpi = (n, l) => '<div class="kpi"><b>' + n + '</b><span>' + l + '</span></div>';
+
+function renderPage(d) {
+  const p = pageVue, vis = v(d, p, "visite.total");
+  const steps = [["Visites","visite"],["Lu la moitié","scroll-50"],["Clic formulaire","clic-formulaire"],["Inscriptions","inscription"]];
+  $("#funnel").innerHTML = steps.map(s => {
+    const n = v(d, p, s[1] + ".total");
+    return '<div class="step"><span>' + s[0] + '</span><div class="bar"><i style="width:' + (vis ? n / vis * 100 : 0) + '%"></i></div><span class="n">' + fmt(n) + '</span></div>';
+  }).join("") + '<p class="muted"><small>Partages : ' + fmt(v(d, p, "partage.total")) + '</small></p>';
+
+  const rows = SOURCES.map(s => ({
+    id: s[0], nom: s[1], vis: v(d, p, "visite." + s[0]), clic: v(d, p, "clic-formulaire." + s[0]),
+    ins: v(d, p, "inscription." + s[0]), part: v(d, p, "partage." + s[0])
+  })).filter(r => r.vis || r.ins).sort((a, b) => b.vis - a.vis);
+  let best = null;
+  rows.forEach(r => { if (r.vis >= MIN_SOURCE && (!best || r.ins / r.vis > best.ins / best.vis)) best = r; });
+  $("#sources").innerHTML = "<thead><tr><th>Source</th><th>Visites</th><th>Clics form.</th><th>Inscriptions</th><th>Conversion</th><th>Partages</th></tr></thead><tbody>" +
+    (rows.length ? rows.map(r => '<tr class="' + (r === best ? "best" : "") + '"><td>' + esc(r.nom) + (r === best ? '<span class="tag rose">meilleure</span>' : "") +
+      "</td><td>" + fmt(r.vis) + "</td><td>" + fmt(r.clic) + "</td><td>" + fmt(r.ins) + "</td><td>" + pct(r.ins, r.vis) + "</td><td>" + fmt(r.part) + "</td></tr>").join("")
+      : '<tr><td colspan="6" class="muted">Aucune visite pour l\'instant.</td></tr>') + "</tbody>";
+
+  const ds = days(14), vals = ds.map(x => v(d, p, "visite.d" + x));
+  const max = Math.max(1, ...vals), W = 700, H = 180, bw = W / ds.length;
+  let svg = '<svg viewBox="0 0 ' + W + ' ' + (H + 30) + '" role="img" aria-label="Visites par jour">';
+  vals.forEach((n, i) => {
+    const h = n / max * (H - 20), x = i * bw + 4, y = H - h;
+    svg += '<rect x="' + x + '" y="' + y + '" width="' + (bw - 8) + '" height="' + Math.max(h, n ? 2 : 0) + '" rx="4" fill="var(--rose)"><title>' + ds[i] + " : " + n + ' visites</title></rect>';
+    if (n) svg += '<text x="' + (x + (bw - 8) / 2) + '" y="' + (y - 5) + '" fill="var(--lait)" font-size="12" text-anchor="middle">' + n + '</text>';
+    svg += '<text x="' + (x + (bw - 8) / 2) + '" y="' + (H + 18) + '" fill="var(--gris)" font-size="11" text-anchor="middle">' + ds[i].slice(8) + "/" + ds[i].slice(5, 7) + '</text>';
+  });
+  svg += '<line x1="0" x2="' + W + '" y1="' + H + '" y2="' + H + '" stroke="var(--nuit-3)"/></svg>';
+  $("#chart").innerHTML = svg;
+}
+
+function renderLinks() {
+  const base = PAGES[liensVue].url;
+  if (!base) { $("#links").innerHTML = '<li class="muted">La page Coach muscu n\'est pas encore en ligne.</li>'; return; }
+  $("#links").innerHTML = SOURCES.filter(s => !["partage","direct","autre"].includes(s[0])).map(s => {
+    const u = base + SHORT[s[0]];
+    return '<li><div><b>' + esc(s[1]) + '</b><br><code>' + esc(u) + '</code></div><button data-copy="' + esc(u) + '">Copier</button></li>';
+  }).join("");
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.page) { pageVue = b.dataset.page; document.querySelectorAll("[data-page]").forEach(x => x.setAttribute("aria-pressed", x === b)); renderPage(data); }
+  if (b.dataset.links) { liensVue = b.dataset.links; document.querySelectorAll("[data-links]").forEach(x => x.setAttribute("aria-pressed", x === b)); renderLinks(); }
+  if (b.dataset.copy) {
+    const ok = () => { b.textContent = "Copié"; setTimeout(() => b.textContent = "Copier", 1500); };
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.copy).then(ok, () => prompt("Copiez le lien :", b.dataset.copy));
+    else prompt("Copiez le lien :", b.dataset.copy);
+  }
+  if (b.id === "refresh") load();
+});
+
+render(data); renderLinks(); load();
+</script>
+</body>
+</html>
