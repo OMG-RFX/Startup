@@ -111,10 +111,11 @@ Le dossier Drive « startups » (partagé pm + Jean) est la **source centrale de
 
 ## 8. Ce que chaque machine peut faire (connu au 23/11)
 
-- **Cloud (projet claude.ai)** : connecteurs Buffer, Google Drive, ElevenLabs, GitHub. Peut pousser sur ce dépôt. Ne peut pas éditer un Google Doc existant (seulement créer des fichiers). Bloqué : tiktok.com, instagram.com, pixabay, netlify.app, abacus. Ne travaille que quand pm lui écrit (ou via une tâche programmée).
+- **Cloud (projet claude.ai)** : connecteurs Buffer, Google Drive, ElevenLabs. Lit ce dépôt, mais NE PEUT PAS y pousser tant que l'appli Claude GitHub n'est pas installée sur le compte OMG-RFX : en attendant il pousse via le grand Mac (Remote Control). Ne peut pas éditer un Google Doc existant (seulement créer des fichiers). Bloqué : tiktok.com, instagram.com, pixabay, netlify.app, abacus. Ne travaille que quand pm lui écrit (ou via une tâche programmée).
 - **Mac (Claude Code)** : fabrique les vidéos (Swift), copie vers le Drive local, pousse sur GitHub. Les connecteurs claude.ai (Buffer, Drive, ElevenLabs) sont normalement disponibles dans Claude Code quand on est connecté avec le même compte Claude ; sinon passer par le navigateur ou demander au cloud.
 - Les chiffres TikTok / Insta : demander des captures à pm (sites bloqués pour Claude).
 
 ## 9. Nouvelles règles de pm (ajouter ici, avec la date)
 
 - 23/11 : synchro cloud ↔ Mac via ce dépôt (`CLAUDE.md` + `ETAT.md`).
+- 23/11 : le Google Drive de pm est PLEIN (quota dépassé) : les copies vers le Drive échouent tant qu'il n'a pas fait de place.
