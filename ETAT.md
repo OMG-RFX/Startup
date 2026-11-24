@@ -13,7 +13,7 @@ Heures = heure de Paris. Le plus récent en haut.
 
 Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini (et la mettre dans « Journal »).
 
-- [Cloud] 24/11 18h35 : routine Oh My Glow du mercredi 25/11 (Buffer ohmyglowpub, vidéos + carrousels de Jean)
+- (rien)
 
 ## À FAIRE (prochaines tâches)
 
@@ -24,12 +24,12 @@ Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini
 5. Oh My Glow : rien à créer. Attendre les nouvelles vidéos FR de Jean dans le Drive quand le stock TikTok est vide.
 6. Phonks Pixabay (464391, 279363, 150200) : toujours pas téléchargées (Pixabay bloque les robots) → pm doit les télécharger lui-même s'il veut la rotation à 4.
 
-## Vidéos : ce qui reste INÉDIT par compte (au 23/11 soir, après les posts du lundi 23/11)
+## Vidéos : ce qui reste INÉDIT par compte (au 24/11 soir, après les posts du mercredi 25/11)
 
 | | TikTok | YouTube (2/jour max) | Instagram |
 |---|---|---|---|
 | **RepFix** | aucune (01-25 utilisées) → créer 26+ | 14 à 25 | 10 à 25 |
-| **Oh My Glow** | 23 à 28 | 12, 14, 17, 18 à 28 | 10 à 14, 16 à 28 |
+| **Oh My Glow** | vidéos 26 à 28 + carrousels 03 à 10 | 17, 18 à 28 | vidéos 12 à 14, 16 à 28 + carrousels 02 à 10 |
 
 Mettre ce tableau à jour à chaque programmation Buffer.
 
@@ -41,8 +41,11 @@ Mettre ce tableau à jour à chaque programmation Buffer.
 
 - RepFix : `repfix-01` à `repfix-25` (`repfix-NN-<theme>-v2.mp4`).
 - Oh My Glow : `glow-01` à `glow-28` (`glow-NN-<titre>.mp4`). glow-19 à 28 = lot 2 FR de Jean (déposé le 22/11). Les versions _EN de Jean ne sont pas traitées (on ne fait pas d'US).
+- Carrousels Oh My Glow (Jean, Drive « OMG FR / 5 - Carrousels à poster / Lot 01 - 10 carrousels TikTok », 10 dossiers de 5 images 1080x1350) : `media/carrousels/omg-cNN-<titre>/01..05.jpg` (+ .png d'origine). En ligne : c01 routine minimaliste, c02 placement du blush. À mettre en ligne au fur et à mesure : 03 coiffures express, 04 un t-shirt trois détails, 05 soirée prête matin facile, 06 du bureau à la soirée, 07 un teint plus léger, 08 la marche après déjeuner, 09 sourcils naturels, 10 le look monochrome. Carrousels = TikTok (photo) + Insta (post), pas YouTube. Envoyer du JPG (TikTok refuse le PNG).
 
 ## Journal (le plus récent en haut)
+
+- 24/11 18h40 Cloud : mercredi 25/11 OMG = 10/10 : TikTok glow-23 (10h), carrousel c01 (12h), glow-24 (15h), carrousel c02 (18h), glow-25 (21h30) ; YT 12 (12h30), 14 (18h) ; Insta 10 (12h), carrousel c01 (16h), 11 (19h30). Rien n'avait été programmé pour OMG le 24/11. RepFix non fait (connecteur Buffer sur ohmyglowpub).
 
 - 23/11 19h00 Cloud : mise en place de la synchro (ce fichier + `CLAUDE.md` + `notes-claude/`).
 - 23/11 01h00 Cloud : glow-19 à 28 en ligne. Lundi 23/11 OMG = 10/10 : TikTok 19 (10h), 20 (12h), 21 (15h), 18 (18h), 22 (21h) ; YT 13 (12h30), 11 (18h30) ; Insta 07 (12h), 08 (16h), 09 (19h30).
