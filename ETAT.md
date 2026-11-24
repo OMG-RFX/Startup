@@ -13,7 +13,7 @@ Heures = heure de Paris. Le plus récent en haut.
 
 Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini (et la mettre dans « Journal »).
 
-- (rien)
+- [Cloud] 24/11 18h35 : routine Oh My Glow du mercredi 25/11 (Buffer ohmyglowpub, vidéos + carrousels de Jean)
 
 ## À FAIRE (prochaines tâches)
 
