@@ -17,8 +17,8 @@ Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini
 
 ## À FAIRE (prochaines tâches)
 
-1. **Routine du mardi 24/11** (à faire le 23/11 au soir) : programmer 10 posts RepFix + 10 posts Oh My Glow sur Buffer. ⚠️ Vérifier d'abord sur Buffer si un autre Claude l'a déjà fait.
-2. **RepFix : nouveau lot de 5 vidéos (26 à 30)** : TikTok n'a plus aucune vidéo inédite. Thèmes jamais traités (voir liste plus bas).
+1. **Routine du jeudi 26/11** (le 25/11 au soir) : 10 posts RepFix + 10 posts Oh My Glow. ⚠️ Lister Buffer avant.
+2. **RepFix : nouveau lot pour TikTok (29+)** : plus aucune vidéo TikTok inédite après le 25/11. Format v3 conseillé (moteur cloud `notes-claude/moteur-v3/`, voir plus bas) + 2 carrousels (`carrousel.py`).
 3. RepFix : passer la 09 (abdos) dans Drive « 2 - Vidéos déjà postées » (publiée sur les 3 réseaux le 23/11).
 4. Ajouter les thèmes RepFix 16-25 à la liste « déjà faits » du doc « Prompts » du Drive (le connecteur Drive ne peut pas éditer ce doc : à faire depuis le Mac ou à la main).
 5. Oh My Glow : rien à créer. Attendre les nouvelles vidéos FR de Jean dans le Drive quand le stock TikTok est vide.
@@ -28,23 +28,26 @@ Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini
 
 | | TikTok | YouTube (2/jour max) | Instagram |
 |---|---|---|---|
-| **RepFix** | aucune (01-25 utilisées) → créer 26+ | 14 à 25 | 10 à 25 |
+| **RepFix** | aucune (01-28 + carrousels c01, c02 utilisés) → créer 29+ | 16 à 28 | 12 à 28 + carrousel c02 |
 | **Oh My Glow** | vidéos 26 à 28 + carrousels 03 à 10 | 17, 18 à 28 | vidéos 12 à 14, 16 à 28 + carrousels 02 à 10 |
 
 Mettre ce tableau à jour à chaque programmation Buffer.
 
 ## Thèmes RepFix déjà faits (ne pas refaire)
 
-01 échauffement · 02 jambes · 03 sommeil · 04 protéines · 05 cardio sèche · 06 ego lifting · 07 trop d'exos bras · 08 repos (7j/7) · 09 abdos · 10 créatine · 11 demi-répétitions · 12 toujours la même charge · 13 lâcher la descente · 14 programme d'influenceur · 15 pas assez manger en prise de masse · 16 noter ses séances · 17 temps de repos · 18 étirements avant la séance · 19 oublier le dos · 20 boire pendant la séance · 21 que des machines · 22 changer de programme tout le temps · 23 toujours jusqu'à l'échec · 24 respiration · 25 séance trop longue
+01 échauffement · 02 jambes · 03 sommeil · 04 protéines · 05 cardio sèche · 06 ego lifting · 07 trop d'exos bras · 08 repos (7j/7) · 09 abdos · 10 créatine · 11 demi-répétitions · 12 toujours la même charge · 13 lâcher la descente · 14 programme d'influenceur · 15 pas assez manger en prise de masse · 16 noter ses séances · 17 temps de repos · 18 étirements avant la séance · 19 oublier le dos · 20 boire pendant la séance · 21 que des machines · 22 changer de programme tout le temps · 23 toujours jusqu'à l'échec · 24 respiration · 25 séance trop longue · 26 squat (3 corrections) · 27 pompes (3 corrections) · 28 programme 3 jours/semaine · carrousels : c01 courbatures (idées reçues), c02 test gainage
 
 ## Vidéos en ligne (`media/`)
 
-- RepFix : `repfix-01` à `repfix-25` (`repfix-NN-<theme>-v2.mp4`).
+- RepFix : `repfix-01` à `repfix-25` (`repfix-NN-<theme>-v2.mp4`) + `repfix-26-squat-v3`, `27-pompes-v3`, `28-programme-3-jours-v3` (format v3).
+- Carrousels RepFix : `media/carrousels/rfx-c01-courbatures/01..06.jpg`, `rfx-c02-test-gainage/01..05.jpg`.
+- **Format v3 RepFix (24/11, pm : « varier le style, améliorer le son, s'inspirer des viraux »)** : fond clair #F2F1EC, gros texte dès la 1re image, barre de progression, « À ÉVITER / À FAIRE n/3 », sous-titres par groupes avec mot actif en vert citron, CTA fond vert. Son : voix isolée ElevenLabs puis EQ + de-esser + compression, -14 LUFS, phonk qui baisse automatiquement sous la voix (sidechain), whoosh aux transitions. Fabriqué dans le cloud (Python + ffmpeg) : `notes-claude/moteur-v3/` (engine.py, mix.sh). Téléchargement des voix ElevenLabs : bloqué depuis le cloud → via le Mac (Remote Control) qui pousse sur une branche temporaire.
 - Oh My Glow : `glow-01` à `glow-28` (`glow-NN-<titre>.mp4`). glow-19 à 28 = lot 2 FR de Jean (déposé le 22/11). Les versions _EN de Jean ne sont pas traitées (on ne fait pas d'US).
 - Carrousels Oh My Glow (Jean, Drive « OMG FR / 5 - Carrousels à poster / Lot 01 - 10 carrousels TikTok », 10 dossiers de 5 images 1080x1350) : `media/carrousels/omg-cNN-<titre>/01..05.jpg` (+ .png d'origine). En ligne : c01 routine minimaliste, c02 placement du blush. À mettre en ligne au fur et à mesure : 03 coiffures express, 04 un t-shirt trois détails, 05 soirée prête matin facile, 06 du bureau à la soirée, 07 un teint plus léger, 08 la marche après déjeuner, 09 sourcils naturels, 10 le look monochrome. Carrousels = TikTok (photo) + Insta (post), pas YouTube. Envoyer du JPG (TikTok refuse le PNG).
 
 ## Journal (le plus récent en haut)
 
+- 24/11 19h Cloud : mercredi 25/11 RepFix = 10/10 : TikTok 26 squat v3 (10h), carrousel courbatures (12h), 27 pompes v3 (15h), carrousel gainage (18h), 28 programme 3 jours v3 (21h30) ; YT 14 (12h30), 15 (18h) ; Insta 10 (12h), carrousel courbatures (16h), 11 (19h30). Nouveau format v3 + nouveau mixage. Copie Drive « RepFix FR / 1 - à poster » pas faite (Drive de pm plein). Branche temporaire claude/project-thread-4tpqq4 (voix) : peut être supprimée.
 - 24/11 18h40 Cloud : mercredi 25/11 OMG = 10/10 : TikTok glow-23 (10h), carrousel c01 (12h), glow-24 (15h), carrousel c02 (18h), glow-25 (21h30) ; YT 12 (12h30), 14 (18h) ; Insta 10 (12h), carrousel c01 (16h), 11 (19h30). Rien n'avait été programmé pour OMG le 24/11. RepFix non fait (connecteur Buffer sur ohmyglowpub).
 
 - 23/11 19h00 Cloud : mise en place de la synchro (ce fichier + `CLAUDE.md` + `notes-claude/`).
