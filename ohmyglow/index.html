@@ -122,8 +122,7 @@ header .wrap { display: flex; align-items: center; justify-content: space-betwee
 
 /* Fonctions */
 .features { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
-.feat { grid-column: span 2; background: var(--nuit-2); border: 1px solid var(--ligne); border-radius: var(--r); padding: 22px; display: grid; gap: 10px; align-content: start; }
-.feat:nth-child(4), .feat:nth-child(5) { grid-column: span 3; }
+.feat { grid-column: span 3; background: var(--nuit-2); border: 1px solid var(--ligne); border-radius: var(--r); padding: 22px; display: grid; gap: 10px; align-content: start; }
 .feat svg { width: 30px; height: 30px; color: var(--rose); }
 .feat p { color: var(--doux); font-size: .95rem; }
 .promise { margin-top: 20px; display: flex; gap: 10px; align-items: center; font-size: .9rem; color: var(--doux); }
@@ -284,10 +283,6 @@ footer .wrap { display: grid; gap: 16px; }
           <h3>Bilan de peau par photo</h3><p>Pour définir tes objectifs de soin. Aucune note, aucun classement de ton physique.</p>
         </div>
         <div class="feat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M12 9v4l2 2M9 3h6"/></svg>
-          <h3>Repas en photo</h3><p>Une estimation des calories et de l'équilibre de ton assiette, sans prise de tête.</p>
-        </div>
-        <div class="feat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5a2 2 0 1 1 2 2c-1 0-2 .7-2 2v1"/><path d="M12 10l-9 6.5c-.8.6-.4 1.5.5 1.5h17c.9 0 1.3-.9.5-1.5L12 10z"/></svg>
           <h3>Ta garde-robe dans ta poche</h3><p>Des idées de tenues avec les vêtements que tu as déjà. Mieux s'habiller sans racheter.</p>
         </div>
@@ -362,11 +357,11 @@ footer .wrap { display: grid; gap: 16px; }
   <div class="wrap">
     <div class="foot-row">
       <span>Oh My Glow <span class="star">✦</span> projet en développement</span>
-      <span>Contact : <span class="js-contact">[ton-email@exemple.fr]</span></span>
+      <span>Contact : <span class="js-contact">ohmyglowpub@gmail.com</span></span>
     </div>
     <div class="legal">
       <details><summary>Mentions légales</summary>
-        <p>Éditeur du site : [Prénom Nom], [adresse ou domiciliation], contact : <span class="js-contact">[ton-email@exemple.fr]</span>. Responsable de la publication : [Prénom Nom].</p>
+        <p>Éditeur du site : projet Oh My Glow (en cours de création), contact : <span class="js-contact">ohmyglowpub@gmail.com</span>.</p>
         <p>Hébergeur : GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA).</p>
         <p>Oh My Glow est un projet d'application en cours de développement. Aucun produit n'est vendu sur ce site.</p>
       </details>
@@ -376,7 +371,7 @@ footer .wrap { display: grid; gap: 16px; }
         <p><b>Durée :</b> jusqu'au lancement de l'appli, puis 12 mois au maximum, ou jusqu'à ta désinscription.</p>
         <p><b>Destinataires :</b> uniquement l'équipe Oh My Glow et nos prestataires techniques (envoi du formulaire, hébergement). Tes données ne sont jamais vendues.</p>
         <p><b>Statistiques :</b> nous mesurons la fréquentation avec un outil sans cookies qui ne permet pas de t'identifier.</p>
-        <p><b>Tes droits :</b> accès, rectification, suppression et retrait du consentement à tout moment, en écrivant à <span class="js-contact">[ton-email@exemple.fr]</span>. Tu peux aussi saisir la CNIL (cnil.fr).</p>
+        <p><b>Tes droits :</b> accès, rectification, suppression et retrait du consentement à tout moment, en écrivant à <span class="js-contact">ohmyglowpub@gmail.com</span>. Tu peux aussi saisir la CNIL (cnil.fr).</p>
       </details>
     </div>
     <p class="small">© Oh My Glow</p>
@@ -388,7 +383,7 @@ footer .wrap { display: grid; gap: 16px; }
 const CONFIG = {
   page: "glowup",
   // Les inscriptions sont envoyées par email via Web3Forms (FORM_ENDPOINT).
-  contact: "[ton-email@exemple.fr]"
+  contact: "ohmyglowpub@gmail.com"
 };
 /* ======================================================= */
 

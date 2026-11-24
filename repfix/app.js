@@ -1,4 +1,4 @@
-/* REPS : suivi sans cookie + liste d'attente. La provenance (UTM + référent) est gardée
+/* RepFix : suivi sans cookie + liste d'attente. La provenance (UTM + référent) est gardée
    dans le stockage de session de l'onglet, effacé à sa fermeture. */
 (function () {
   "use strict";
@@ -193,7 +193,7 @@
     b.addEventListener("click", function () {
       track("share_click", "merci");
       var url = SITE_URL + "/?utm_source=bouche_a_oreille&utm_medium=partage&utm_campaign=" + CAMPAIGN;
-      var text = "Je viens de rejoindre la liste d'attente de REPS : une appli qui corrige ta technique à la salle et adapte ton programme. Inscris-toi aussi :";
+      var text = "Je viens de rejoindre la liste d'attente de RepFix : une appli qui corrige ta technique à la salle et adapte ton programme. Inscris-toi aussi :";
       var copy = function () {
         if (navigator.clipboard) {
           navigator.clipboard.writeText(text + " " + url).then(function () {
@@ -203,7 +203,7 @@
         } else prompt("Copie ce lien et envoie-le à ton pote :", url);
       };
       if (navigator.share) {
-        navigator.share({ title: "REPS, ton coach de salle dans la poche", text: text, url: url })
+        navigator.share({ title: "RepFix, ton coach de salle dans la poche", text: text, url: url })
           .catch(function (err) { if (!err || err.name !== "AbortError") copy(); });
       } else copy();
     });
