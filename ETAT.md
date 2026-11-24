@@ -5,6 +5,7 @@ Heures = heure de Paris. Le plus récent en haut.
 
 ## Dernière synchro
 
+- 24/11/2026 : Mac (petit Mac) : pull OK, à jour. Push impossible pour l'instant (pas d'identifiants GitHub sur ce Mac, gh à installer par pm).
 - 23/11/2026 19h00 : Cloud : création de `CLAUDE.md` + `ETAT.md` (mise en place de la synchro).
 
 ## EN COURS (le « verrou »)
