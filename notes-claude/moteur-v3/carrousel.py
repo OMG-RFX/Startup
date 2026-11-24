@@ -2,6 +2,7 @@ import sys
 sys.path.insert(0,'.')
 from engine import text_img, wrap, paste_c, font
 from PIL import Image, ImageDraw
+import illus
 W,H=1080,1350
 INK=(11,11,15); LIME=(182,255,59); OFF=(242,241,236); RED=(255,59,48); MUT=(150,150,150)
 def para(im, txt, sz, y, col, maxw=900, lh=1.25, squeeze=0.95, bold=False, align="left", x0=90):
@@ -10,21 +11,29 @@ def para(im, txt, sz, y, col, maxw=900, lh=1.25, squeeze=0.95, bold=False, align
         x = x0 if align=="left" else (W-ti.width)//2
         im.alpha_composite(ti,(int(x),int(y))); y+=int(sz*lh)
     return y
-def slide(n, total, title, body=None, lines=None, hook=False, sub=None, cta=False):
+def place(im, il, ytop, ybot, maxh=430):
+    if il is None: return
+    h=min(maxh, ybot-ytop); 
+    if h<150: return
+    sc=min(h/il.height, 900/il.width, 1.6)
+    il=il.resize((int(il.width*sc),int(il.height*sc)),Image.LANCZOS)
+    im.alpha_composite(il,((W-il.width)//2, int(ytop+(ybot-ytop-il.height)/2)))
+def slide(n, total, title, body=None, lines=None, hook=False, sub=None, cta=False, il=None):
     im=Image.new("RGBA",(W,H),(LIME if cta else INK)+(255,)); d=ImageDraw.Draw(im)
     fg = INK if cta else OFF
     # en-tête
     im.alpha_composite(text_img("REPFIX",40,LIME if not cta else INK,0.9),(90,70))
     pg=text_img(f"{n}/{total}",40,MUT if not cta else INK,0.9); im.alpha_composite(pg,(W-90-pg.width,70))
     if hook:
-        y=330
+        y=190
         for ln in wrap(title.split(" "),120,900,0.84):
             ti=text_img(ln,120,OFF,0.84); im.alpha_composite(ti,((W-ti.width)//2,y)); y+=136
         if sub:
             si=text_img(sub,52,INK,0.92); bw=si.width+60
             d.rounded_rectangle(((W-bw)//2,y+40,(W+bw)//2,y+40+si.height+40),24,fill=LIME)
-            im.alpha_composite(si,((W-si.width)//2,y+60))
-        sw=text_img("SWIPE  >>>",46,LIME,0.9); im.alpha_composite(sw,((W-sw.width)//2,1180))
+            im.alpha_composite(si,((W-si.width)//2,y+60)); y+=si.height+100
+        place(im, il, y+10, 1235, 460)
+        sw=text_img("SWIPE  >>>",46,LIME,0.9); im.alpha_composite(sw,((W-sw.width)//2,1262))
         return im
     y=230
     for ln in wrap(title.split(" "),92,900,0.84):
@@ -38,6 +47,10 @@ def slide(n, total, title, body=None, lines=None, hook=False, sub=None, cta=Fals
             d.rounded_rectangle((90,y,990,y+130),28,fill=(30,30,36) if not cta else INK)
             im.alpha_composite(text_img(a,54,c,0.9),(130,y+38))
             bi=text_img(b,54,OFF,0.9); im.alpha_composite(bi,(950-bi.width,y+38)); y+=150
+    if cta and il is not None:
+        il=il.copy(); dd=ImageDraw.Draw(il); t=text_img("REP",150,LIME,0.84)
+        il.alpha_composite(t,((il.width-t.width)//2, int(il.height*0.4-t.height/2)))
+    place(im, il, y+40, 1290)
     return im
 def build(name, slides):
     import os; os.makedirs(name,exist_ok=True)
@@ -45,18 +58,18 @@ def build(name, slides):
         s.convert("RGB").save(f"{name}/{i:02d}.jpg",quality=93)
 A="rfx-c01-courbatures"; T=6
 build(A,[
- slide(1,T,"TES COURBATURES NE PROUVENT RIEN",hook=True,sub="(et c'est une bonne nouvelle)"),
- slide(2,T,"Pourquoi t'as des courbatures ?",body="Surtout quand tu fais un exercice nouveau, ou quand tu ralentis la descente. Ton corps n'est pas habitué, c'est tout."),
- slide(3,T,"Pourquoi elles disparaissent",body="Après 2 ou 3 séances du même exercice, ton corps s'adapte. Moins de courbatures, ça veut pas dire moins de muscle."),
- slide(4,T,"Le vrai signe de progrès",body="Tes charges ou tes répétitions montent d'une semaine à l'autre. Pas la douleur du lendemain."),
- slide(5,T,"Ce que tu fais maintenant",lines=[("1","Garde ton programme",LIME),("2","Note tes charges",LIME),("3","+1 rep ou +1 kg",LIME)]),
- slide(6,T,"Écris REP en commentaire",body="Je t'envoie l'appli. Et abonne-toi pour plus de conseils sport.",cta=True),
+ slide(1,T,"TES COURBATURES NE PROUVENT RIEN",hook=True,sub="(et c'est une bonne nouvelle)",il=illus.biceps()),
+ slide(2,T,"Pourquoi t'as des courbatures ?",body="Surtout quand tu fais un exercice nouveau, ou quand tu ralentis la descente. Ton corps n'est pas habitué, c'est tout.",il=illus.dumbbell_slow()),
+ slide(3,T,"Pourquoi elles disparaissent",body="Après 2 ou 3 séances du même exercice, ton corps s'adapte. Moins de courbatures, ça veut pas dire moins de muscle.",il=illus.soreness_bars()),
+ slide(4,T,"Le vrai signe de progrès",body="Tes charges ou tes répétitions montent d'une semaine à l'autre. Pas la douleur du lendemain.",il=illus.progress_chart()),
+ slide(5,T,"Ce que tu fais maintenant",lines=[("1","Garde ton programme",LIME),("2","Note tes charges",LIME),("3","+1 rep ou +1 kg",LIME)],il=illus.notebook()),
+ slide(6,T,"Écris REP en commentaire",body="Je t'envoie l'appli. Et abonne-toi pour plus de conseils sport.",cta=True,il=illus.comment_rep()),
 ])
 B="rfx-c02-test-gainage"; T=5
 build(B,[
- slide(1,T,"TU TIENS COMBIEN DE TEMPS EN GAINAGE ?",hook=True,sub="Teste-toi, chrono en main"),
- slide(2,T,"La bonne position",body="Avant-bras au sol, coudes sous les épaules. Fesses serrées, ventre rentré, corps bien droit. Tu arrêtes dès que le bassin tombe."),
- slide(3,T,"Ton niveau",lines=[("< 30 s","Débutant",RED),("30 s à 1 min","Correct",OFF),("1 à 2 min","Solide",LIME),("> 2 min","Machine",LIME)]),
- slide(4,T,"Pour progresser",body="3 séries à 80 % de ton temps max, 3 fois par semaine. Ajoute 5 secondes chaque semaine."),
- slide(5,T,"Dis ton temps en commentaire",body="Et écris REP, je t'envoie l'appli. Abonne-toi pour plus de conseils sport.",cta=True),
+ slide(1,T,"TU TIENS COMBIEN DE TEMPS EN GAINAGE ?",hook=True,sub="Teste-toi, chrono en main",il=illus.stopwatch()),
+ slide(2,T,"La bonne position",body="Avant-bras au sol, coudes sous les épaules. Fesses serrées, ventre rentré, corps bien droit. Tu arrêtes dès que le bassin tombe.",il=illus.plank()),
+ slide(3,T,"Ton niveau",lines=[("< 30 s","Débutant",RED),("30 s à 1 min","Correct",OFF),("1 à 2 min","Solide",LIME),("> 2 min","Machine",LIME)],il=illus.gauge()),
+ slide(4,T,"Pour progresser",body="3 séries à 80 % de ton temps max, 3 fois par semaine. Ajoute 5 secondes chaque semaine.",il=illus.calendar_up()),
+ slide(5,T,"Dis ton temps en commentaire",body="Et écris REP, je t'envoie l'appli. Abonne-toi pour plus de conseils sport.",cta=True,il=illus.comment_rep()),
 ])
