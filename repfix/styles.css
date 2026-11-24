@@ -1,4 +1,4 @@
-/* REPS : page liste d'attente. Styles hors couches => prioritaires sur le gabarit. */
+/* RepFix : page liste d'attente. Styles hors couches => prioritaires sur le gabarit. */
 @font-face {
   font-family: "Oswald";
   src: url("fonts/oswald-latin.woff2") format("woff2");
