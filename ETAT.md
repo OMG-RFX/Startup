@@ -47,6 +47,7 @@ Mettre ce tableau à jour à chaque programmation Buffer.
 
 ## Journal (le plus récent en haut)
 
+- 25/11 14h20 Cloud : pm « tu as oublié les sons sur les carrousels » → Buffer ne permet pas de musique sur un carrousel. Choix de pm : carrousels TikTok en rappel Buffer (pm ajoute le son dans l'appli). Fait : RepFix carrousel gainage 18h passé en rappel. Reste : OMG carrousel c02 18h (compte Buffer ohmyglowpub, pm doit basculer le connecteur).
 - 24/11 19h Cloud : mercredi 25/11 RepFix = 10/10 : TikTok 26 squat v3 (10h), carrousel courbatures (12h), 27 pompes v3 (15h), carrousel gainage (18h), 28 programme 3 jours v3 (21h30) ; YT 14 (12h30), 15 (18h) ; Insta 10 (12h), carrousel courbatures (16h), 11 (19h30). Nouveau format v3 + nouveau mixage. Copie Drive « RepFix FR / 1 - à poster » pas faite (Drive de pm plein). Branche temporaire claude/project-thread-4tpqq4 (voix) : peut être supprimée.
 - 24/11 18h40 Cloud : mercredi 25/11 OMG = 10/10 : TikTok glow-23 (10h), carrousel c01 (12h), glow-24 (15h), carrousel c02 (18h), glow-25 (21h30) ; YT 12 (12h30), 14 (18h) ; Insta 10 (12h), carrousel c01 (16h), 11 (19h30). Rien n'avait été programmé pour OMG le 24/11. RepFix non fait (connecteur Buffer sur ohmyglowpub).
 

@@ -119,3 +119,4 @@ Le dossier Drive « startups » (partagé pm + Jean) est la **source centrale de
 
 - 23/11 : synchro cloud ↔ Mac via ce dépôt (`CLAUDE.md` + `ETAT.md`).
 - 23/11 : le Google Drive de pm est PLEIN (quota dépassé) : les copies vers le Drive échouent tant qu'il n'a pas fait de place.
+- 25/11 : carrousels TikTok = TOUJOURS en mode rappel Buffer (`schedulingType: notification`) : Buffer ne peut pas mettre de musique sur un carrousel, pm publie depuis l'appli TikTok et choisit un son tendance. Garder le format carrousel (pas de diaporama vidéo). Carrousels toujours illustrés (24/11).
