@@ -13,12 +13,12 @@ Heures = heure de Paris. Le plus récent en haut.
 
 Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini (et la mettre dans « Journal »).
 
-- [Cloud] 25/11 21h15 : banque de formats viraux (fil « Varier les formats des vidéos virales »)
+- (rien)
 
 ## À FAIRE (prochaines tâches)
 
 1. **Routine du jeudi 26/11** (le 25/11 au soir) : 10 posts RepFix + 10 posts Oh My Glow. ⚠️ Lister Buffer avant.
-2. **RepFix : nouveau lot pour TikTok (29+)** : plus aucune vidéo TikTok inédite après le 25/11. Format v3 conseillé (moteur cloud `notes-claude/moteur-v3/`, voir plus bas) + 2 carrousels (`carrousel.py`).
+2. **RepFix : nouveau lot pour TikTok (29+)** : plus aucune vidéo TikTok inédite après le 25/11. **Au moins 3 formats différents de `notes-claude/banque-formats-viraux.md`** (ex. simulation lent vs rapide, vrai/faux, tier list). Format v3 conseillé (moteur cloud `notes-claude/moteur-v3/`, voir plus bas) + 2 carrousels (`carrousel.py`).
 3. RepFix : passer la 09 (abdos) dans Drive « 2 - Vidéos déjà postées » (publiée sur les 3 réseaux le 23/11).
 4. Ajouter les thèmes RepFix 16-25 à la liste « déjà faits » du doc « Prompts » du Drive (le connecteur Drive ne peut pas éditer ce doc : à faire depuis le Mac ou à la main).
 5. Oh My Glow : rien à créer. Attendre les nouvelles vidéos FR de Jean dans le Drive quand le stock TikTok est vide.
@@ -47,6 +47,7 @@ Mettre ce tableau à jour à chaque programmation Buffer.
 
 ## Journal (le plus récent en haut)
 
+- 25/11 21h30 Cloud : banque de formats viraux créée (`notes-claude/banque-formats-viraux.md`, 10 formats, idées RepFix + OMG) à partir du TikTok de pm (@visionownitknow « Slow vs fast », simulation A vs B animée, 20 s, 18 K enregistrements). Nouvelle règle de rotation des formats (CLAUDE.md §9). Copie pour Jean dans le Drive (dossier Prompts). Reste : prochain lot RepFix 29+ = au moins 3 formats de la banque (1er à tester : simulation lent vs rapide).
 - 25/11 14h20 Cloud : pm « tu as oublié les sons sur les carrousels » → Buffer ne permet pas de musique sur un carrousel. Choix de pm : carrousels TikTok en rappel Buffer (pm ajoute le son dans l'appli). Fait : RepFix carrousel gainage 18h passé en rappel. OMG carrousel c02 18h aussi passé en rappel. Règle pm : carrousels RepFix et OMG à la MÊME heure (18h) pour un seul moment de rappel ; pm bascule de compte dans l’appli Buffer.
 - 24/11 19h Cloud : mercredi 25/11 RepFix = 10/10 : TikTok 26 squat v3 (10h), carrousel courbatures (12h), 27 pompes v3 (15h), carrousel gainage (18h), 28 programme 3 jours v3 (21h30) ; YT 14 (12h30), 15 (18h) ; Insta 10 (12h), carrousel courbatures (16h), 11 (19h30). Nouveau format v3 + nouveau mixage. Copie Drive « RepFix FR / 1 - à poster » pas faite (Drive de pm plein). Branche temporaire claude/project-thread-4tpqq4 (voix) : peut être supprimée.
 - 24/11 18h40 Cloud : mercredi 25/11 OMG = 10/10 : TikTok glow-23 (10h), carrousel c01 (12h), glow-24 (15h), carrousel c02 (18h), glow-25 (21h30) ; YT 12 (12h30), 14 (18h) ; Insta 10 (12h), carrousel c01 (16h), 11 (19h30). Rien n'avait été programmé pour OMG le 24/11. RepFix non fait (connecteur Buffer sur ohmyglowpub).
