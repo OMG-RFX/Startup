@@ -13,7 +13,7 @@ Heures = heure de Paris. Le plus récent en haut.
 
 Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini (et la mettre dans « Journal »).
 
-- (rien)
+- [Cloud] 25/11 21h15 : banque de formats viraux (fil « Varier les formats des vidéos virales »)
 
 ## À FAIRE (prochaines tâches)
 
