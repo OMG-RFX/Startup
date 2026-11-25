@@ -108,6 +108,26 @@ Rappels : Oh My Glow, on ne crée rien → les idées OMG sont des **suggestions
 
 ---
 
+## 11. Tuto long illustré « style manga » (2e TikTok de pm, 25/11)
+
+**Source** : @naughty_gamer02 (KAIZO), « How To Force Your Arms To Look Big Without Flexing ». **3 min 08**, ~162 K j'aime, **81 K enregistrements** (1 vue sur 2 qui like enregistre !), 6,4 K partages.
+
+**Comment c'est fait**
+- Fond noir, **titre fixe en haut** toute la vidéo (bandeau blanc, texte noir) : la promesse reste visible, on sait pourquoi on regarde.
+- Personnage **dessiné style manga / anime** (noir et blanc), qui fait chaque exercice ; le **muscle visé s'allume en bleu** avec une flèche.
+- Étiquettes à côté : nom de l'exercice (« HAMMER CURLS », « preacher curl »), nombre de reps (« 12 REPS » en vert).
+- Voix off + sous-titres mot par mot au centre. Un exercice après l'autre, chacun expliqué (quel muscle, pourquoi).
+
+**Pourquoi ça marche** : promesse d'**apparence** (« des bras qui ont l'air gros sans contracter ») = désir fort ; c'est un vrai programme complet → on l'enregistre pour la salle ; format long (> 1 min) que TikTok pousse en ce moment ; le dessin manga parle à la cible 16-25 ans.
+
+**RepFix** (fabricable : illustrations générées + moteur v3, voix Hugo)
+- « Comment avoir des épaules larges en t-shirt » (deltoïde latéral qui s'allume), « Comment avoir l'air plus grand : le dos », « Des avant-bras qui se voient ». Titre fixe en haut, 4-5 exercices, reps affichées, muscle en vert citron #B6FF3B (notre couleur) au lieu du bleu.
+- Version courte 30-45 s pour tester d'abord (notre rétention est faible), puis une version longue 1 min 30 si ça prend.
+
+**Oh My Glow (idée pour Jean)** : même principe en dessin « soft girl » : « Comment avoir l'air reposée même après une nuit courte », étapes une par une avec la zone concernée qui s'illumine et un titre fixe en haut.
+
+---
+
 ## Fiches à ajouter (veille)
 
 Format : `### NN. Nom (date, lien d'origine)` + pourquoi + idée RepFix + idée OMG.
