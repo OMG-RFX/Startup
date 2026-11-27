@@ -13,7 +13,7 @@ Heures = heure de Paris. Le plus récent en haut.
 
 Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini (et la mettre dans « Journal »).
 
-- (rien)
+- [Cloud] 27/11 08h35 : routine Buffer OMG du vendredi 27/11
 
 ## À FAIRE (prochaines tâches)
 
