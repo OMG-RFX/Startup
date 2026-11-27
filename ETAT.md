@@ -25,11 +25,11 @@ Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini
 7. **Drive : mettre `notes-claude/banque-formats-viraux.md` dans le dossier « Prompts (consignes IA pm + Jean) »** dès que pm a fait de la place (refusé le 25/11 : quota dépassé).
 6. Phonks Pixabay (464391, 279363, 150200) : toujours pas téléchargées (Pixabay bloque les robots) → pm doit les télécharger lui-même s'il veut la rotation à 4.
 
-## Vidéos : ce qui reste INÉDIT par compte (au 24/11 soir, après les posts du mercredi 25/11)
+## Vidéos : ce qui reste INÉDIT par compte (RepFix au 27/11 matin, OMG au 24/11 soir)
 
 | | TikTok | YouTube (2/jour max) | Instagram |
 |---|---|---|---|
-| **RepFix** | aucune (01-28 + carrousels c01, c02 utilisés) → créer 29+ | 16 à 28 | 12 à 28 + carrousel c02 |
+| **RepFix** | aucune vidéo (01-28 utilisées) ; carrousels c01-c07 utilisés → créer vidéos 29+ ou carrousels c08+ | 18 à 28 | 16 à 28 + carrousels c01 (déjà), c03 à c07 |
 | **Oh My Glow** | vidéos 26 à 28 + carrousels 03 à 10 | 17, 18 à 28 | vidéos 12 à 14, 16 à 28 + carrousels 02 à 10 |
 
 Mettre ce tableau à jour à chaque programmation Buffer.
@@ -47,6 +47,8 @@ Mettre ce tableau à jour à chaque programmation Buffer.
 - Carrousels Oh My Glow (Jean, Drive « OMG FR / 5 - Carrousels à poster / Lot 01 - 10 carrousels TikTok », 10 dossiers de 5 images 1080x1350) : `media/carrousels/omg-cNN-<titre>/01..05.jpg` (+ .png d'origine). En ligne : c01 routine minimaliste, c02 placement du blush. À mettre en ligne au fur et à mesure : 03 coiffures express, 04 un t-shirt trois détails, 05 soirée prête matin facile, 06 du bureau à la soirée, 07 un teint plus léger, 08 la marche après déjeuner, 09 sourcils naturels, 10 le look monochrome. Carrousels = TikTok (photo) + Insta (post), pas YouTube. Envoyer du JPG (TikTok refuse le PNG).
 
 ## Journal (le plus récent en haut)
+
+- 27/11 08h40 Cloud : vendredi 27/11 RepFix. Rien n'avait été programmé le 26/11. Idée de pm validée : quand les TikTok sont des carrousels publiés à la main, ils ne passent PLUS par Buffer (envoyés dans le fil 5 min avant), et les places libérées servent à plus de vidéos YT/Insta. Buffer (7 posts, auto) : YT 16 (12h30), 17 (18h) ; Insta 12 (12h), 13 (14h), carrousel c02 gainage (16h), 14 (19h30), 15 (21h). TikTok à la main, mêmes heures que OMG : c03 vrai ou faux (10h), c04 POV jambes (12h), c05 tier list compléments (15h), c06 note iPhone 1re année (18h), c07 faux SMS pote qui stagne (21h30) = 5 formats différents. Carrousels créés avec `notes-claude/moteur-v3/lot2711.py`, images dans `media/carrousels/rfx-c03..c07` + /mnt/project-files/promo/carrousels-rfx-2711/ (légendes.md). Format de chaque TikTok noté ici.
 
 - 25/11 21h30 Cloud : banque de formats viraux créée (`notes-claude/banque-formats-viraux.md`, 11 formats, idées RepFix + OMG) à partir des 2 TikTok de pm (@visionownitknow « Slow vs fast » = simulation A vs B ; @naughty_gamer02 « bras gros sans contracter » = tuto long illustré manga, 81 K enregistrements). Nouvelle règle de rotation des formats (CLAUDE.md §9). Copie Drive pour Jean PAS faite : Drive de pm plein (quota dépassé). Reste : prochain lot RepFix 29+ = au moins 3 formats de la banque (1er à tester : simulation lent vs rapide).
 - 25/11 14h20 Cloud : pm « tu as oublié les sons sur les carrousels » → Buffer ne permet pas de musique sur un carrousel. Choix de pm : carrousels TikTok en rappel Buffer (pm ajoute le son dans l'appli). Fait : RepFix carrousel gainage 18h passé en rappel. OMG carrousel c02 18h aussi passé en rappel. Règle pm : carrousels RepFix et OMG à la MÊME heure (18h) pour un seul moment de rappel ; pm bascule de compte dans l’appli Buffer.
