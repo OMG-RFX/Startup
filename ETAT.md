@@ -29,14 +29,14 @@ Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini
 
 | | TikTok | YouTube (2/jour max) | Instagram |
 |---|---|---|---|
-| **RepFix** | aucune vidéo (01-28 utilisées) ; carrousels c01-c07 utilisés → créer vidéos 29+ ou carrousels c08+ | 18 à 28 | 16 à 28 + carrousels c01 (déjà), c03 à c07 |
+| **RepFix** (au 27/11 soir) | aucune (29-33 programmées le 28/11). Carrousels ARRÊTÉS → prochain lot 34+ | 20 à 33 | 21 à 33 + carrousels c03 à c07 |
 | **Oh My Glow** | vidéos 26 à 28 + carrousels 03 à 10 | 17, 18 à 28 | vidéos 12 à 14, 16 à 28 + carrousels 02 à 10 |
 
 Mettre ce tableau à jour à chaque programmation Buffer.
 
 ## Thèmes RepFix déjà faits (ne pas refaire)
 
-01 échauffement · 02 jambes · 03 sommeil · 04 protéines · 05 cardio sèche · 06 ego lifting · 07 trop d'exos bras · 08 repos (7j/7) · 09 abdos · 10 créatine · 11 demi-répétitions · 12 toujours la même charge · 13 lâcher la descente · 14 programme d'influenceur · 15 pas assez manger en prise de masse · 16 noter ses séances · 17 temps de repos · 18 étirements avant la séance · 19 oublier le dos · 20 boire pendant la séance · 21 que des machines · 22 changer de programme tout le temps · 23 toujours jusqu'à l'échec · 24 respiration · 25 séance trop longue · 26 squat (3 corrections) · 27 pompes (3 corrections) · 28 programme 3 jours/semaine · carrousels : c01 courbatures (idées reçues), c02 test gainage
+01 échauffement · 02 jambes · 03 sommeil · 04 protéines · 05 cardio sèche · 06 ego lifting · 07 trop d'exos bras · 08 repos (7j/7) · 09 abdos · 10 créatine · 11 demi-répétitions · 12 toujours la même charge · 13 lâcher la descente · 14 programme d'influenceur · 15 pas assez manger en prise de masse · 16 noter ses séances · 17 temps de repos · 18 étirements avant la séance · 19 oublier le dos · 20 boire pendant la séance · 21 que des machines · 22 changer de programme tout le temps · 23 toujours jusqu'à l'échec · 24 respiration · 25 séance trop longue · 26 squat (3 corrections) · 27 pompes (3 corrections) · 28 programme 3 jours/semaine · 29 lent vs rapide (simulation) · 30 POV jambes · 31 quiz vrai/faux (courbatures, sommeil, repas toutes les 3 h) · 32 sommeil 6 h vs 8 h (simulation) · 33 tier list prise de muscle · carrousels : c01 courbatures (idées reçues), c02 test gainage
 
 ## Vidéos en ligne (`media/`)
 
@@ -47,6 +47,10 @@ Mettre ce tableau à jour à chaque programmation Buffer.
 - Carrousels Oh My Glow (Jean, Drive « OMG FR / 5 - Carrousels à poster / Lot 01 - 10 carrousels TikTok », 10 dossiers de 5 images 1080x1350) : `media/carrousels/omg-cNN-<titre>/01..05.jpg` (+ .png d'origine). En ligne : c01 routine minimaliste, c02 placement du blush. À mettre en ligne au fur et à mesure : 03 coiffures express, 04 un t-shirt trois détails, 05 soirée prête matin facile, 06 du bureau à la soirée, 07 un teint plus léger, 08 la marche après déjeuner, 09 sourcils naturels, 10 le look monochrome. Carrousels = TikTok (photo) + Insta (post), pas YouTube. Envoyer du JPG (TikTok refuse le PNG).
 
 ## Journal (le plus récent en haut)
+
+- 27/11 23h30 Cloud : lot RepFix 29-33 (pm : « inspire-toi de contenu viral et varie »). Formats SANS VOIX, lisibles sans le son, phonk en fond (ElevenLabs à reconnecter côté connecteur) : 29 simulation lent vs rapide, 30 POV jambes, 31 quiz vrai/faux, 32 simulation sommeil 6 h vs 8 h, 33 tier list = 4 formats. Moteur : `notes-claude/moteur-v3/lot2811.py`. Fichiers `media/repfix-29..33-*-v3.mp4`. TikTok 28/11 : 29 (10h), 30 (12h), 31 (15h), 33 (18h), 32 (21h30). Copie Drive pas faite (Drive plein).
+
+- 27/11 23h20 Cloud : samedi 28/11 RepFix, version minimale (pm : « arrête les carrousels, fais en un minimum »). Plus de carrousels TikTok manuels ni de notifs 5 min avant. Buffer (7 posts, auto) : YT 18 (12h30), 19 (18h) ; Insta 16 (12h), 17 (14h), 18 (16h), 19 (19h30), 20 (21h). TikTok : RIEN (aucune vidéo inédite). Drive « RepFix FR / à poster » : rien de nouveau.
 
 - 27/11 08h40 Cloud : vendredi 27/11 RepFix. Rien n'avait été programmé le 26/11. Idée de pm validée : quand les TikTok sont des carrousels publiés à la main, ils ne passent PLUS par Buffer (envoyés dans le fil 5 min avant), et les places libérées servent à plus de vidéos YT/Insta. Buffer (7 posts, auto) : YT 16 (12h30), 17 (18h) ; Insta 12 (12h), 13 (14h), carrousel c02 gainage (16h), 14 (19h30), 15 (21h). TikTok à la main, mêmes heures que OMG : c03 vrai ou faux (10h), c04 POV jambes (12h), c05 tier list compléments (15h), c06 note iPhone 1re année (18h), c07 faux SMS pote qui stagne (21h30) = 5 formats différents. Carrousels créés avec `notes-claude/moteur-v3/lot2711.py`, images dans `media/carrousels/rfx-c03..c07` + /mnt/project-files/promo/carrousels-rfx-2711/ (légendes.md). Format de chaque TikTok noté ici.
 
