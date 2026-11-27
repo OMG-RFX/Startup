@@ -29,7 +29,7 @@ Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini
 
 | | TikTok | YouTube (2/jour max) | Instagram |
 |---|---|---|---|
-| **RepFix** | aucune vidéo (01-28 utilisées) ; carrousels c01-c07 utilisés → créer vidéos 29+ ou carrousels c08+ | 18 à 28 | 16 à 28 + carrousels c01 (déjà), c03 à c07 |
+| **RepFix** (au 27/11 soir) | aucune vidéo (01-28 utilisées). Carrousels ARRÊTÉS (pm 27/11) → il faut des vidéos 29+ | 20 à 28 | 21 à 28 + carrousels c03 à c07 |
 | **Oh My Glow** | vidéos 26 à 28 + carrousels 03 à 10 | 17, 18 à 28 | vidéos 12 à 14, 16 à 28 + carrousels 02 à 10 |
 
 Mettre ce tableau à jour à chaque programmation Buffer.
@@ -47,6 +47,8 @@ Mettre ce tableau à jour à chaque programmation Buffer.
 - Carrousels Oh My Glow (Jean, Drive « OMG FR / 5 - Carrousels à poster / Lot 01 - 10 carrousels TikTok », 10 dossiers de 5 images 1080x1350) : `media/carrousels/omg-cNN-<titre>/01..05.jpg` (+ .png d'origine). En ligne : c01 routine minimaliste, c02 placement du blush. À mettre en ligne au fur et à mesure : 03 coiffures express, 04 un t-shirt trois détails, 05 soirée prête matin facile, 06 du bureau à la soirée, 07 un teint plus léger, 08 la marche après déjeuner, 09 sourcils naturels, 10 le look monochrome. Carrousels = TikTok (photo) + Insta (post), pas YouTube. Envoyer du JPG (TikTok refuse le PNG).
 
 ## Journal (le plus récent en haut)
+
+- 27/11 23h20 Cloud : samedi 28/11 RepFix, version minimale (pm : « arrête les carrousels, fais en un minimum »). Plus de carrousels TikTok manuels ni de notifs 5 min avant. Buffer (7 posts, auto) : YT 18 (12h30), 19 (18h) ; Insta 16 (12h), 17 (14h), 18 (16h), 19 (19h30), 20 (21h). TikTok : RIEN (aucune vidéo inédite). Drive « RepFix FR / à poster » : rien de nouveau.
 
 - 27/11 08h40 Cloud : vendredi 27/11 RepFix. Rien n'avait été programmé le 26/11. Idée de pm validée : quand les TikTok sont des carrousels publiés à la main, ils ne passent PLUS par Buffer (envoyés dans le fil 5 min avant), et les places libérées servent à plus de vidéos YT/Insta. Buffer (7 posts, auto) : YT 16 (12h30), 17 (18h) ; Insta 12 (12h), 13 (14h), carrousel c02 gainage (16h), 14 (19h30), 15 (21h). TikTok à la main, mêmes heures que OMG : c03 vrai ou faux (10h), c04 POV jambes (12h), c05 tier list compléments (15h), c06 note iPhone 1re année (18h), c07 faux SMS pote qui stagne (21h30) = 5 formats différents. Carrousels créés avec `notes-claude/moteur-v3/lot2711.py`, images dans `media/carrousels/rfx-c03..c07` + /mnt/project-files/promo/carrousels-rfx-2711/ (légendes.md). Format de chaque TikTok noté ici.
 
