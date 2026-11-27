@@ -30,7 +30,7 @@ Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini
 | | TikTok | YouTube (2/jour max) | Instagram |
 |---|---|---|---|
 | **RepFix** | aucune (01-28 + carrousels c01, c02 utilisés) → créer 29+ | 16 à 28 | 12 à 28 + carrousel c02 |
-| **Oh My Glow** | **plus aucune vidéo** ; carrousels Lot 01 05 à 10 + Lot 02 FR (6 photos, 10 carrousels) + Lot 02 rose et bleu (10) déposés par Jean le 26/11 au soir | 08, 09 (erreurs du 19/11), 20 à 28 | vidéos 17 à 28 + carrousels 04 à 10 |
+| **Oh My Glow** | **plus aucune vidéo** ; carrousels Lot 01 07 et 10 + Lot 02 FR (6 photos, 10 carrousels) + Lot 02 rose et bleu (10) déposés par Jean le 26/11 au soir | 08, 09 (erreurs du 19/11), 20 à 28 | vidéos 17 à 28 + carrousels 04 à 10 |
 
 Mettre ce tableau à jour à chaque programmation Buffer.
 
@@ -48,6 +48,7 @@ Mettre ce tableau à jour à chaque programmation Buffer.
 
 ## Journal (le plus récent en haut)
 
+- 27/11 08h35 Cloud : pm « publie des carrousels sur TikTok au lieu des vidéos, descriptions très courtes » → OMG passe à 10/10 : TikTok 5 carrousels en rappel (pm publie avec un son, images envoyées dans le fil 5 min avant) : c09 sourcils (10h), c08 marche après déjeuner (12h), c06 bureau → soirée (15h), c04 t-shirt (18h), c05 soirée prête (21h30). Légendes TikTok carrousel = 1 ligne + « Écris GLOW 📩 Lien en bio » + 3 hashtags. c05, c06, c08, c09 ajoutés dans `media/carrousels/` (diapo 04 = diapo appli, la même dans tous les carrousels).
 - 27/11 08h30 Cloud : vendredi 27/11 OMG = 6 posts : TikTok carrousel c04 « un t-shirt trois détails » (18h, rappel Buffer, images envoyées dans le fil à 17h55, pm publie avec un son) ; YT 17 (12h30, l'ancien post en erreur du 26/11 reprogrammé), 19 (18h30 et pas 18h : la limite YouTube semble compter sur 24 h glissantes, le 26/11 un post est parti à 18h02) ; Insta 14 (12h), carrousel c03 coiffures (16h), 16 (19h30). Les 4 autres TikTok manquent : aucune vidéo OMG inédite (Jean n'a déposé que des carrousels le 26/11 : Lot 02 FR 6 photos + Lot 02 rose et bleu). c04 ajouté dans `media/carrousels/omg-c04-un-tshirt-trois-details/` (images Buffer servies via raw.githubusercontent de la branche, PR #4 pas encore fusionnée). Le MacBook Air n'a pas Google Drive pour ordinateur (CloudStorage vide) : le connecteur Drive télécharge bien les PNG (enregistrés en fichier). RepFix : rien (connecteur sur ohmyglowpub).
 
 - 26/11 11h20 Cloud : jeudi 26/11 OMG (programmé le jour même, pm en retard) = 9 posts : TikTok glow-26 (12h), glow-27 (15h), carrousel c03 coiffures express (18h, publié à la main par pm avec un son, images envoyées dans le fil à 17h55, pas de post Buffer), glow-28 (21h30) ; YT 17 (12h30), 18 (18h) ; Insta 12 (12h), carrousel c02 blush (16h), 13 (19h30). Le 5e TikTok manque : stock vidéo TikTok OMG vide. c03 ajouté dans `media/carrousels/omg-c03-coiffures-express/`. Formats : talking/texte de Jean (miroir vs selfie = comparaison A vs B, routine = erreurs, je parie = prédiction) + carrousel tuto. Note : le rappel Buffer du carrousel c02 du 25/11 est en erreur (pas d'appareil mobile lié à Buffer) : vérifier avec pm qu'il l'a bien publié. RepFix : rien le 26/11.
