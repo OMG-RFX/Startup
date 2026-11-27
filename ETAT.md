@@ -13,7 +13,7 @@ Heures = heure de Paris. Le plus récent en haut.
 
 Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini (et la mettre dans « Journal »).
 
-- [Cloud] 27/11 08h35 : routine Buffer OMG du vendredi 27/11
+- (rien)
 
 ## À FAIRE (prochaines tâches)
 
@@ -25,12 +25,12 @@ Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini
 7. **Drive : mettre `notes-claude/banque-formats-viraux.md` dans le dossier « Prompts (consignes IA pm + Jean) »** dès que pm a fait de la place (refusé le 25/11 : quota dépassé).
 6. Phonks Pixabay (464391, 279363, 150200) : toujours pas téléchargées (Pixabay bloque les robots) → pm doit les télécharger lui-même s'il veut la rotation à 4.
 
-## Vidéos : ce qui reste INÉDIT par compte (OMG au 26/11 ; RepFix au 24/11 soir)
+## Vidéos : ce qui reste INÉDIT par compte (OMG au 27/11 ; RepFix au 24/11 soir)
 
 | | TikTok | YouTube (2/jour max) | Instagram |
 |---|---|---|---|
 | **RepFix** | aucune (01-28 + carrousels c01, c02 utilisés) → créer 29+ | 16 à 28 | 12 à 28 + carrousel c02 |
-| **Oh My Glow** | **plus aucune vidéo** (26-28 postées le 26/11) ; carrousels 04 à 10 | 08, 09 (erreurs du 19/11), 19 à 28 | vidéos 14, 16 à 28 + carrousels 03 à 10 |
+| **Oh My Glow** | **plus aucune vidéo** ; carrousels Lot 01 05 à 10 + Lot 02 FR (6 photos, 10 carrousels) + Lot 02 rose et bleu (10) déposés par Jean le 26/11 au soir | 08, 09 (erreurs du 19/11), 20 à 28 | vidéos 17 à 28 + carrousels 04 à 10 |
 
 Mettre ce tableau à jour à chaque programmation Buffer.
 
@@ -47,6 +47,8 @@ Mettre ce tableau à jour à chaque programmation Buffer.
 - Carrousels Oh My Glow (Jean, Drive « OMG FR / 5 - Carrousels à poster / Lot 01 - 10 carrousels TikTok », 10 dossiers de 5 images 1080x1350) : `media/carrousels/omg-cNN-<titre>/01..05.jpg` (+ .png d'origine). En ligne : c01 routine minimaliste, c02 placement du blush. À mettre en ligne au fur et à mesure : 03 coiffures express, 04 un t-shirt trois détails, 05 soirée prête matin facile, 06 du bureau à la soirée, 07 un teint plus léger, 08 la marche après déjeuner, 09 sourcils naturels, 10 le look monochrome. Carrousels = TikTok (photo) + Insta (post), pas YouTube. Envoyer du JPG (TikTok refuse le PNG).
 
 ## Journal (le plus récent en haut)
+
+- 27/11 08h30 Cloud : vendredi 27/11 OMG = 6 posts : TikTok carrousel c04 « un t-shirt trois détails » (18h, rappel Buffer, images envoyées dans le fil à 17h55, pm publie avec un son) ; YT 17 (12h30, l'ancien post en erreur du 26/11 reprogrammé), 19 (18h30 et pas 18h : la limite YouTube semble compter sur 24 h glissantes, le 26/11 un post est parti à 18h02) ; Insta 14 (12h), carrousel c03 coiffures (16h), 16 (19h30). Les 4 autres TikTok manquent : aucune vidéo OMG inédite (Jean n'a déposé que des carrousels le 26/11 : Lot 02 FR 6 photos + Lot 02 rose et bleu). c04 ajouté dans `media/carrousels/omg-c04-un-tshirt-trois-details/` (images Buffer servies via raw.githubusercontent de la branche, PR #4 pas encore fusionnée). Le MacBook Air n'a pas Google Drive pour ordinateur (CloudStorage vide) : le connecteur Drive télécharge bien les PNG (enregistrés en fichier). RepFix : rien (connecteur sur ohmyglowpub).
 
 - 26/11 11h20 Cloud : jeudi 26/11 OMG (programmé le jour même, pm en retard) = 9 posts : TikTok glow-26 (12h), glow-27 (15h), carrousel c03 coiffures express (18h, publié à la main par pm avec un son, images envoyées dans le fil à 17h55, pas de post Buffer), glow-28 (21h30) ; YT 17 (12h30), 18 (18h) ; Insta 12 (12h), carrousel c02 blush (16h), 13 (19h30). Le 5e TikTok manque : stock vidéo TikTok OMG vide. c03 ajouté dans `media/carrousels/omg-c03-coiffures-express/`. Formats : talking/texte de Jean (miroir vs selfie = comparaison A vs B, routine = erreurs, je parie = prédiction) + carrousel tuto. Note : le rappel Buffer du carrousel c02 du 25/11 est en erreur (pas d'appareil mobile lié à Buffer) : vérifier avec pm qu'il l'a bien publié. RepFix : rien le 26/11.
 
