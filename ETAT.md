@@ -30,7 +30,7 @@ Format : `- [Mac|Cloud] JJ/MM HHhMM : tâche`. Retirer la ligne quand c'est fini
 | | TikTok | YouTube (2/jour max) | Instagram |
 |---|---|---|---|
 | **RepFix** (au 27/11 soir) | aucune (29-33 programmées le 28/11). Carrousels ARRÊTÉS → prochain lot 34+ | 20 à 33 | 17, 20 à 33 + carrousels c03 à c07 |
-| **Oh My Glow** | vidéos 26 à 28 + carrousels 03 à 10 | 17, 18 à 28 | vidéos 12 à 14, 16 à 28 + carrousels 02 à 10 |
+| **Oh My Glow** (au 28/11) | AUCUNE vidéo (01-28 toutes passées). Restent carrousels c07, c10 mais carrousels arrêtés → attendre vidéos FR de Jean | 22 à 28 | 22 à 28 + carrousels c04 à c10 |
 
 Mettre ce tableau à jour à chaque programmation Buffer.
 
@@ -47,6 +47,8 @@ Mettre ce tableau à jour à chaque programmation Buffer.
 - Carrousels Oh My Glow (Jean, Drive « OMG FR / 5 - Carrousels à poster / Lot 01 - 10 carrousels TikTok », 10 dossiers de 5 images 1080x1350) : `media/carrousels/omg-cNN-<titre>/01..05.jpg` (+ .png d'origine). En ligne : c01 routine minimaliste, c02 placement du blush. À mettre en ligne au fur et à mesure : 03 coiffures express, 04 un t-shirt trois détails, 05 soirée prête matin facile, 06 du bureau à la soirée, 07 un teint plus léger, 08 la marche après déjeuner, 09 sourcils naturels, 10 le look monochrome. Carrousels = TikTok (photo) + Insta (post), pas YouTube. Envoyer du JPG (TikTok refuse le PNG).
 
 ## Journal (le plus récent en haut)
+
+- 28/11 03h25 Cloud : samedi 28/11 OMG, 7 posts (auto). YT 20 (12h30), 21 (18h) ; Insta 17 (12h), 18 (14h), 19 (16h), 20 (19h30), 21 (21h). TikTok : rien, plus aucune vidéo OMG inédite (26-28 passées le 26/11) et pas de carrousels (arrêtés). Drive « OMG FR / à poster » : rien de neuf de Jean depuis le 22/11.
 
 - 27/11 23h30 Cloud : lot RepFix 29-33 (pm : « inspire-toi de contenu viral et varie »). Formats SANS VOIX, lisibles sans le son, phonk en fond (ElevenLabs à reconnecter côté connecteur) : 29 simulation lent vs rapide, 30 POV jambes, 31 quiz vrai/faux, 32 simulation sommeil 6 h vs 8 h, 33 tier list = 4 formats. Moteur : `notes-claude/moteur-v3/lot2811.py`. Fichiers `media/repfix-29..33-*-v3.mp4`. TikTok 28/11 : 29 (10h), 30 (12h), 31 (15h), 33 (18h), 32 (21h30). Copie Drive pas faite (Drive plein).
 
